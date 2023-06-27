@@ -2,26 +2,61 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+@font-face {
+  font-family: "KoreanDREAM";
+  font-weight: 100;
+  font-style: normal;
+  src: url("/fonts/KoreanDREAM1R.woff") format("woff");
 }
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+@font-face {
+  font-family: "KoreanDREAM";
+  font-weight: 200;
+  font-style: normal;
+  src: url("/fonts/KoreanDREAM2R.woff") format("woff");
+}
+@font-face {
+  font-family: "KoreanDREAM";
+  font-weight: 300;
+  font-style: normal;
+  src: url("/fonts/KoreanDREAM3R.woff") format("woff");
+}
+@font-face {
+  font-family: "KoreanDREAM";
+  font-weight: 400;
+  font-style: normal;
+  src: url("/fonts/KoreanDREAM4R.woff") format("woff");
+}
+@font-face {
+  font-family: "KoreanDREAM";
+  font-weight: 500;
+  font-style: normal;
+  src: url("/fonts/KoreanDREAM5R.woff") format("woff");
+}
+@font-face {
+  font-family: "KoreanDREAM";
+  font-weight: 600;
+  font-style: normal;
+  src: url("/fonts/KoreanDREAM6R.woff") format("woff");
+}
+@font-face {
+  font-family: "KoreanDREAM";
+  font-weight: 700;
+  font-style: normal;
+  src: url("/fonts/KoreanDREAM7R.woff") format("woff");
+}
+@font-face {
+  font-family: "KoreanDREAM";
+  font-weight: 800;
+  font-style: normal;
+  src: url("/fonts/KoreanDREAM8R.woff") format("woff");
+}
+@font-face {
+  font-family: "KoreanDREAM";
+  font-weight: 900;
+  font-style: normal;
+  src: url("/fonts/KoreanDREAM9R.woff") format("woff");
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  font-family: "KoreanDREAM";
 }
