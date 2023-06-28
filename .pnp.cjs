@@ -28,12 +28,14 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         [null, {\
           "packageLocation": "./",\
           "packageDependencies": [\
+            ["@headlessui/react", "virtual:0ab3cd50d738b620b3e8cb94b0820c77635ed1128f96aa9d4dc388ad33e00d95487cfd4486739ebf24247cb4232ed3896711a150064ad1324e95e8a646b2771c#npm:1.7.15"],\
             ["@types/node", "npm:20.3.2"],\
             ["@types/react", "npm:18.2.14"],\
             ["@types/react-dom", "npm:18.2.6"],\
             ["autoprefixer", "virtual:0ab3cd50d738b620b3e8cb94b0820c77635ed1128f96aa9d4dc388ad33e00d95487cfd4486739ebf24247cb4232ed3896711a150064ad1324e95e8a646b2771c#npm:10.4.14"],\
             ["eslint", "npm:8.43.0"],\
             ["eslint-config-next", "virtual:0ab3cd50d738b620b3e8cb94b0820c77635ed1128f96aa9d4dc388ad33e00d95487cfd4486739ebf24247cb4232ed3896711a150064ad1324e95e8a646b2771c#npm:13.4.7"],\
+            ["lowdb", "npm:6.0.1"],\
             ["next", "virtual:0ab3cd50d738b620b3e8cb94b0820c77635ed1128f96aa9d4dc388ad33e00d95487cfd4486739ebf24247cb4232ed3896711a150064ad1324e95e8a646b2771c#npm:13.4.7"],\
             ["postcss", "npm:8.4.24"],\
             ["react", "npm:18.2.0"],\
@@ -119,6 +121,33 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/@eslint-js-npm-8.43.0-60a60994b7-580487a09c.zip/node_modules/@eslint/js/",\
           "packageDependencies": [\
             ["@eslint/js", "npm:8.43.0"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["@headlessui/react", [\
+        ["npm:1.7.15", {\
+          "packageLocation": "./.yarn/cache/@headlessui-react-npm-1.7.15-9e188a0651-f2d11d5849.zip/node_modules/@headlessui/react/",\
+          "packageDependencies": [\
+            ["@headlessui/react", "npm:1.7.15"]\
+          ],\
+          "linkType": "SOFT"\
+        }],\
+        ["virtual:0ab3cd50d738b620b3e8cb94b0820c77635ed1128f96aa9d4dc388ad33e00d95487cfd4486739ebf24247cb4232ed3896711a150064ad1324e95e8a646b2771c#npm:1.7.15", {\
+          "packageLocation": "./.yarn/__virtual__/@headlessui-react-virtual-6d277fac05/0/cache/@headlessui-react-npm-1.7.15-9e188a0651-f2d11d5849.zip/node_modules/@headlessui/react/",\
+          "packageDependencies": [\
+            ["@headlessui/react", "virtual:0ab3cd50d738b620b3e8cb94b0820c77635ed1128f96aa9d4dc388ad33e00d95487cfd4486739ebf24247cb4232ed3896711a150064ad1324e95e8a646b2771c#npm:1.7.15"],\
+            ["@types/react", "npm:18.2.14"],\
+            ["@types/react-dom", "npm:18.2.6"],\
+            ["client-only", "npm:0.0.1"],\
+            ["react", "npm:18.2.0"],\
+            ["react-dom", "virtual:0ab3cd50d738b620b3e8cb94b0820c77635ed1128f96aa9d4dc388ad33e00d95487cfd4486739ebf24247cb4232ed3896711a150064ad1324e95e8a646b2771c#npm:18.2.0"]\
+          ],\
+          "packagePeers": [\
+            "@types/react-dom",\
+            "@types/react",\
+            "react-dom",\
+            "react"\
           ],\
           "linkType": "HARD"\
         }]\
@@ -2490,12 +2519,14 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./",\
           "packageDependencies": [\
             ["hsr-message-generater", "workspace:."],\
+            ["@headlessui/react", "virtual:0ab3cd50d738b620b3e8cb94b0820c77635ed1128f96aa9d4dc388ad33e00d95487cfd4486739ebf24247cb4232ed3896711a150064ad1324e95e8a646b2771c#npm:1.7.15"],\
             ["@types/node", "npm:20.3.2"],\
             ["@types/react", "npm:18.2.14"],\
             ["@types/react-dom", "npm:18.2.6"],\
             ["autoprefixer", "virtual:0ab3cd50d738b620b3e8cb94b0820c77635ed1128f96aa9d4dc388ad33e00d95487cfd4486739ebf24247cb4232ed3896711a150064ad1324e95e8a646b2771c#npm:10.4.14"],\
             ["eslint", "npm:8.43.0"],\
             ["eslint-config-next", "virtual:0ab3cd50d738b620b3e8cb94b0820c77635ed1128f96aa9d4dc388ad33e00d95487cfd4486739ebf24247cb4232ed3896711a150064ad1324e95e8a646b2771c#npm:13.4.7"],\
+            ["lowdb", "npm:6.0.1"],\
             ["next", "virtual:0ab3cd50d738b620b3e8cb94b0820c77635ed1128f96aa9d4dc388ad33e00d95487cfd4486739ebf24247cb4232ed3896711a150064ad1324e95e8a646b2771c#npm:13.4.7"],\
             ["postcss", "npm:8.4.24"],\
             ["react", "npm:18.2.0"],\
@@ -3077,6 +3108,16 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [\
             ["loose-envify", "npm:1.4.0"],\
             ["js-tokens", "npm:4.0.0"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["lowdb", [\
+        ["npm:6.0.1", {\
+          "packageLocation": "./.yarn/cache/lowdb-npm-6.0.1-aff9d8bf46-d555a5bcc2.zip/node_modules/lowdb/",\
+          "packageDependencies": [\
+            ["lowdb", "npm:6.0.1"],\
+            ["steno", "npm:3.0.0"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -4360,6 +4401,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [\
             ["ssri", "npm:10.0.4"],\
             ["minipass", "npm:5.0.0"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["steno", [\
+        ["npm:3.0.0", {\
+          "packageLocation": "./.yarn/cache/steno-npm-3.0.0-9cd45a1573-fb928451a4.zip/node_modules/steno/",\
+          "packageDependencies": [\
+            ["steno", "npm:3.0.0"]\
           ],\
           "linkType": "HARD"\
         }]\
