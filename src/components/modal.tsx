@@ -1,6 +1,5 @@
 import { Dialog, Transition } from "@headlessui/react";
 import React, { Fragment } from "react";
-import Button from "./button";
 
 interface ModalProps {
   open?: boolean;
@@ -8,6 +7,7 @@ interface ModalProps {
   onClick?: React.MouseEventHandler<HTMLButtonElement>;
   onClose?: any;
   children?: React.ReactNode;
+  buttons?: React.ReactNode;
 }
 
 const Modal: React.FC<ModalProps> = ({
@@ -16,6 +16,7 @@ const Modal: React.FC<ModalProps> = ({
   onClick,
   onClose,
   children,
+  buttons,
 }) => {
   return (
     <Transition appear show={open} as={Fragment}>
@@ -43,7 +44,7 @@ const Modal: React.FC<ModalProps> = ({
               leaveFrom="opacity-100"
               leaveTo="opacity-0 translate-y-24"
             >
-              <Dialog.Panel className="w-full max-w-4xl transform overflow-hidden rounded-tr-[2rem] bg-[#dfdfdf] align-middle shadow-2xl shadow-black/70 transition-all">
+              <Dialog.Panel className="w-full max-w-4xl transform overflow-hidden rounded-tr-[2rem] bg-white/75 align-middle shadow-2xl shadow-black/70 transition-all">
                 <div className="px-6 pb-12">
                   <Dialog.Title
                     as="h3"
@@ -61,9 +62,19 @@ const Modal: React.FC<ModalProps> = ({
                   </div>
                 </div>
 
-                <div className="bg-neutral-800 w-full h-24 flex justify-center items-center">
-                  <Button onClick={onClose}>확인</Button>
-                </div>
+                <Transition.Child
+                  as={Fragment}
+                  enter="ease-out duration-300"
+                  enterFrom="h-12"
+                  enterTo="h-24"
+                  leave="ease-in duration-200"
+                  leaveFrom="h-24"
+                  leaveTo="h-12"
+                >
+                  <div className="bg-neutral-800 w-full h-24 flex justify-center items-center">
+                    {buttons}
+                  </div>
+                </Transition.Child>
               </Dialog.Panel>
             </Transition.Child>
           </div>

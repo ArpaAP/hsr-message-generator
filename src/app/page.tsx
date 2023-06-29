@@ -1,5 +1,9 @@
 "use client";
+import Button from "@/components/button";
+import CharacterIconButton from "@/components/character-icon-button";
+import Input from "@/components/input";
 import Modal from "@/components/modal";
+import NewCharacterIconButton from "@/components/new-character-icon-button";
 import { DBData } from "@/types/data";
 import { Low, LowSync } from "lowdb";
 import { LocalStorage } from "lowdb/browser";
@@ -78,7 +82,7 @@ export default function Home() {
               </div>
               <hr className="mt-2 mb-5 border-[0.95px] border-zinc-400" />
 
-              <div className="absolute inset-x-0 top-24 bottom-36 overflow-y-scroll overscroll-y-contain">
+              <div className="absolute inset-x-0 top-24 bottom-36 overflow-y-scroll overscroll-y-contain scrollbar">
                 <div className="flex gap-5 my-6 px-12">
                   <Image
                     alt="mar7th"
@@ -175,8 +179,25 @@ export default function Home() {
         open={openNewModal}
         title="새 대화 생성"
         onClose={() => setOpenNewModal(false)}
+        buttons={<Button onClick={() => setOpenNewModal(false)}>생성</Button>}
       >
-        테스트 Dialogbox입니다.
+        <div className="flex flex-col gap-5">
+          <div className="flex gap-3 items-center">
+            <span className="flex-shrink-0">주제 이름:</span>
+            <Input className="w-full" placeholder="새 대화" />
+          </div>
+
+          <div className="flex gap-3 items-center">
+            <span className="flex-shrink-0">참여 캐릭터:</span>
+            <div className="my-auto pt-2 flex gap-3 flex-wrap">
+              <CharacterIconButton
+                characterId="march-7th"
+                className="w-16 h-16 drop-shadow-md"
+              />
+              <NewCharacterIconButton className="w-16 h-16" />
+            </div>
+          </div>
+        </div>
       </Modal>
     </div>
   );

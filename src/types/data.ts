@@ -12,6 +12,7 @@ interface Room {
 interface Topic {
   topicId: string;
   messages: Message[];
+  reply: ReplyMessage[] | Emoticon[];
 }
 
 interface Message {
@@ -20,3 +21,11 @@ interface Message {
   emoticon?: string;
   image?: string;
 }
+
+interface ReplyMessage {
+  type: "text" | "emoticon";
+  emoticon?: string;
+  content?: string;
+}
+
+type Emoticon = string;

@@ -60,3 +60,13 @@
 body {
   font-family: "KoreanDREAM";
 }
+
+.scrollbar::-webkit-scrollbar {
+  width: 5px;
+}
+
+.scrollbar::-webkit-scrollbar-thumb {
+  border-radius: 0;
+  background-color: rgb(113, 113, 113);
+  color: black;
+}
