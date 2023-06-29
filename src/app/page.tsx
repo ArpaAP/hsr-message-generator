@@ -105,7 +105,7 @@ export default function Home() {
                   <div>
                     <div className="text-neutral-500 mb-1">Mar. 7th</div>
                     <div className="bg-white/75 rounded-b-xl rounded-tr-xl px-3.5 pt-2.5 pb-2 text-lg">
-                      개척자!!
+                      야~
                     </div>
                   </div>
                 </div>
@@ -120,7 +120,7 @@ export default function Home() {
                   <div>
                     <div className="text-neutral-500 mb-1">Mar. 7th</div>
                     <div className="bg-white/75 rounded-b-xl rounded-tr-xl px-3.5 pt-2.5 pb-2 text-lg">
-                      개척자!!
+                      무시하는거 아니지?!
                     </div>
                   </div>
                 </div>
@@ -136,7 +136,7 @@ export default function Home() {
                   <div>
                     <div className="text-neutral-500 mb-1">Mar. 7th</div>
                     <div className="bg-white/75 rounded-b-xl rounded-tr-xl px-3.5 pt-2.5 pb-2 text-lg">
-                      지금 내 방으로 와줄수 있어?
+                      이거 봐바!!
                     </div>
                   </div>
                 </div>
@@ -160,10 +160,10 @@ export default function Home() {
 
               <div className="absolute bottom-0 inset-x-0 bg-slate-800/10 h-36 px-8 py-4 border-t border-t-black/10 flex flex-col gap-3">
                 <div className="bg-white/90 shadow-md py-1 text-lg text-center">
-                  곧 갈게
+                  좋네
                 </div>
                 <div className="bg-white/90 shadow-md py-1 text-lg text-center">
-                  싫어, 안녕
+                  좀 별론데
                 </div>
               </div>
             </div>
