@@ -1,19 +1,24 @@
 "use client";
-import Button from "@/components/button";
-import CharacterIconButton from "@/components/character-icon-button";
-import Input from "@/components/input";
-import Modal from "@/components/modal";
-import NewCharacterIconButton from "@/components/new-character-icon-button";
+import Button from "@/components/Button";
+import CharacterIconButton from "@/components/CharacterIconButton";
+import CharacterSelector from "@/components/CharacterSelector";
+import Input from "@/components/Input";
+import Modal from "@/components/Modal";
+import NewCharacterIconButton from "@/components/NewCharacterIconButton";
 import { DBData } from "@/types/data";
-import { Low, LowSync } from "lowdb";
+import { LowSync } from "lowdb";
 import { LocalStorage } from "lowdb/browser";
 import Image from "next/image";
-import { useEffect, useState } from "react";
-import { TbChevronRight, TbCheck, TbPlus } from "react-icons/tb";
+import { useCallback, useEffect, useState } from "react";
+import { TbChevronRight, TbCheck, TbPlus, TbX } from "react-icons/tb";
 
 export default function Home() {
   const [db, setDB] = useState<LowSync<DBData>>();
-  const [openNewModal, setOpenNewModal] = useState(false);
+  const [openNewChatModal, setOpenNewChatModal] = useState(false);
+  const [openCharacterSelection, setOpenCharacterSelection] = useState(false);
+  const [newChatSelectedCharacters, setNewChatSelectedCharacters] = useState<
+    string[]
+  >([]);
 
   useEffect(() => {
     let db = new LowSync(new LocalStorage<DBData>("datas"), {
@@ -25,12 +30,19 @@ export default function Home() {
     console.log(db.data);
   }, []);
 
+  const handleNewChatModalClose = useCallback(() => {
+    setOpenNewChatModal(false);
+    setNewChatSelectedCharacters([]);
+  }, []);
+
   return (
     <div className="relative h-screen overflow-hidden">
       <Image
         src="/bg-comp.jpeg"
         alt="background"
         className="absolute top-0 -z-50 w-full h-full blur-xl brightness-50 scale-110"
+        loading="eager"
+        priority
         fill
       />
       <div className="container px-8 py-6 h-full mx-auto">
@@ -67,7 +79,7 @@ export default function Home() {
             <button
               type="button"
               className="flex justify-center items-center px-4 py-2 text-[#c1c1c0] bg-black/30 hover:bg-black/20 transition-all duration-200 gap-4"
-              onClick={() => setOpenNewModal(true)}
+              onClick={() => setOpenNewChatModal(true)}
             >
               <TbPlus size={24} />
               <span className="text-md font-light mt-1">새 대화 만들기</span>
@@ -176,10 +188,19 @@ export default function Home() {
       </div>
 
       <Modal
-        open={openNewModal}
+        open={openNewChatModal}
         title="새 대화 생성"
-        onClose={() => setOpenNewModal(false)}
-        buttons={<Button onClick={() => setOpenNewModal(false)}>생성</Button>}
+        onClose={handleNewChatModalClose}
+        buttons={
+          <>
+            <Button onClick={handleNewChatModalClose} leadingIcon={<TbX />}>
+              취소
+            </Button>
+            <Button onClick={() => {}} leadingIcon={<TbCheck />}>
+              생성
+            </Button>
+          </>
+        }
       >
         <div className="flex flex-col gap-5">
           <div className="flex gap-3 items-center">
@@ -187,18 +208,48 @@ export default function Home() {
             <Input className="w-full" placeholder="새 대화" />
           </div>
 
-          <div className="flex gap-3 items-center">
-            <span className="flex-shrink-0">참여 캐릭터:</span>
+          <div className="flex gap-3">
+            <span className="flex-shrink-0 py-4">참여 캐릭터:</span>
             <div className="my-auto pt-2 flex gap-3 flex-wrap">
-              <CharacterIconButton
-                characterId="march-7th"
-                className="w-16 h-16 drop-shadow-md"
+              {newChatSelectedCharacters.map((characterId) => (
+                <CharacterIconButton
+                  key={characterId}
+                  characterId={characterId}
+                  className="w-16 h-16 drop-shadow-md border border-neutral-400 rounded-full"
+                  onClick={() => {
+                    let temp = [...newChatSelectedCharacters];
+
+                    temp = temp.filter((one) => one != characterId);
+
+                    setNewChatSelectedCharacters(temp);
+                  }}
+                />
+              ))}
+              <NewCharacterIconButton
+                className="w-16 h-16"
+                onClick={() => setOpenCharacterSelection(true)}
               />
-              <NewCharacterIconButton className="w-16 h-16" />
             </div>
           </div>
         </div>
       </Modal>
+
+      <CharacterSelector
+        open={openCharacterSelection}
+        onClose={() => setOpenCharacterSelection(false)}
+        selected={newChatSelectedCharacters}
+        onSelect={(characterId) => {
+          let temp = [...newChatSelectedCharacters];
+
+          if (newChatSelectedCharacters.includes(characterId)) {
+            temp = temp.filter((one) => one != characterId);
+          } else {
+            temp.push(characterId);
+          }
+
+          setNewChatSelectedCharacters(temp);
+        }}
+      />
     </div>
   );
 }

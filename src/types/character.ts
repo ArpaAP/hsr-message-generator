@@ -23,4 +23,5 @@ export default interface Character {
     | "Nihility"
     | "Preservation"
     | "Abundance";
+  rarity: 5 | 4;
 }

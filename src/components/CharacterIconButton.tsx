@@ -1,7 +1,8 @@
 /* eslint-disable @next/next/no-img-element */
 import CHARACTERS from "@/datas/characters";
 import classNames from "classnames";
-import { Tooltip } from "./tooltip";
+import { Tooltip } from "./Tooltip";
+import Image from "next/image";
 
 interface CharacterIconButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement> {
@@ -25,9 +26,11 @@ const CharacterIconButton: React.FC<CharacterIconButtonProps> = ({
       placement="bottom"
     >
       <button type="button" className={classNames(className)} {...props}>
-        <img
+        <Image
           alt={characterId}
           src={character?.icon ?? ""}
+          width={64}
+          height={64}
           className="rounded-full"
         />
       </button>

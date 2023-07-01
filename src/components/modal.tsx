@@ -8,6 +8,7 @@ interface ModalProps {
   onClose?: any;
   children?: React.ReactNode;
   buttons?: React.ReactNode;
+  overlay?: React.ReactNode;
 }
 
 const Modal: React.FC<ModalProps> = ({
@@ -17,10 +18,11 @@ const Modal: React.FC<ModalProps> = ({
   onClose,
   children,
   buttons,
+  overlay,
 }) => {
   return (
     <Transition appear show={open} as={Fragment}>
-      <Dialog as="div" className="relative z-10" onClose={onClose}>
+      <Dialog as="div" className="relative z-10" onClose={() => {}}>
         <Transition.Child
           as={Fragment}
           enter="ease-out duration-300"
@@ -65,18 +67,19 @@ const Modal: React.FC<ModalProps> = ({
                 <Transition.Child
                   as={Fragment}
                   enter="ease-out duration-300"
-                  enterFrom="h-12"
+                  enterFrom="h-14"
                   enterTo="h-24"
                   leave="ease-in duration-200"
                   leaveFrom="h-24"
-                  leaveTo="h-12"
+                  leaveTo="h-14"
                 >
-                  <div className="bg-neutral-800 w-full h-24 flex justify-center items-center">
+                  <div className="bg-neutral-800 w-full h-24 flex gap-16 justify-center items-center">
                     {buttons}
                   </div>
                 </Transition.Child>
               </Dialog.Panel>
             </Transition.Child>
+            <Dialog.Panel>{overlay}</Dialog.Panel>
           </div>
         </div>
       </Dialog>

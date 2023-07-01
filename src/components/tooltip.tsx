@@ -1,6 +1,6 @@
 import type React from "react";
 import type * as PopperJS from "@popperjs/core";
-import { useCallback, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { usePopper } from "react-popper";
 
 type TooltipProps = {
@@ -24,21 +24,29 @@ export const Tooltip: React.FC<TooltipProps> = (props) => {
     null
   );
   let [popperElement, setPopperElement] = useState<HTMLDivElement | null>(null);
-  let { styles, attributes } = usePopper(referenceElement, popperElement, {
-    placement,
-    modifiers: [{ name: "offset", options: { offset: [0, 4] } }],
-  });
+  let { styles, attributes, update } = usePopper(
+    referenceElement,
+    popperElement,
+    {
+      placement,
+      modifiers: [{ name: "offset", options: { offset: [0, 4] } }],
+    }
+  );
 
   let enterTimeout = useRef<NodeJS.Timeout>();
   let leaveTimeout = useRef<NodeJS.Timeout>();
+
   const handleMouseEnter = useCallback(() => {
     leaveTimeout.current && clearTimeout(leaveTimeout.current);
     enterTimeout.current = setTimeout(() => setIsOpen(true), enterDelay);
-  }, [enterDelay]);
+    update && update();
+  }, [enterDelay, update]);
+
   const handleMouseLeave = useCallback(() => {
     enterTimeout.current && clearTimeout(enterTimeout.current);
     leaveTimeout.current = setTimeout(() => setIsOpen(false), leaveDelay);
-  }, [leaveDelay]);
+    update && update();
+  }, [leaveDelay, update]);
 
   return (
     <div>
