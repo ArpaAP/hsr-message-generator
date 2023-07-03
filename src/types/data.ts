@@ -3,29 +3,32 @@ export interface DBData {
   version: string;
 }
 
-interface Room {
+export interface Room {
   roomId: string;
+  roomName: string;
   characters: string[];
   topics: Topic[];
 }
 
-interface Topic {
+export interface Topic {
   topicId: string;
+  topicName: string;
   messages: Message[];
   reply: ReplyMessage[] | Emoticon[];
 }
 
-interface Message {
+export interface Message {
+  messageId: string;
   author: string;
   content?: string;
   emoticon?: string;
   image?: string;
 }
 
-interface ReplyMessage {
+export interface ReplyMessage {
   type: "text" | "emoticon";
   emoticon?: string;
   content?: string;
 }
 
-type Emoticon = string;
+export type Emoticon = string;

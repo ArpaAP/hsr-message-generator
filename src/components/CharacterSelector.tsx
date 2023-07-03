@@ -32,7 +32,7 @@ const CharacterSelector: React.FC<CharacterSelectorProps> = ({
             leaveFrom="opacity-100"
             leaveTo="-translate-x-36 opacity-0"
           >
-            <Dialog.Panel className="scrollbar bg-black/25 drop-shadow-xl h-full w-full transform transition-all border-[0.5px] text-white font-light px-3 pt-6 pb-12 border-gray-500/50">
+            <Dialog.Panel className="scrollbar bg-black/25 h-full w-full transform transition-all border-[0.5px] text-white font-light px-3 pt-6 pb-12 border-gray-500/50">
               <div className="flex pb-3 gap-3 justify-center items-center">
                 <hr className="w-1/5 border-gray-500/50" />
                 <span className="flex-shrink-0">캐릭터 리스트</span>
@@ -44,7 +44,7 @@ const CharacterSelector: React.FC<CharacterSelectorProps> = ({
                   <button
                     type="button"
                     key={one.id}
-                    className="col-span-1 relative shadow-xl cursor-pointer transition-all duration-300"
+                    className="col-span-1 relative cursor-pointer transition-all duration-300"
                     onClick={(e) => onSelect && onSelect(one.id, e)}
                   >
                     <Image

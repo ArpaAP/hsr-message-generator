@@ -46,7 +46,7 @@ const Modal: React.FC<ModalProps> = ({
               leaveFrom="opacity-100"
               leaveTo="opacity-0 translate-y-24"
             >
-              <Dialog.Panel className="w-full max-w-4xl transform overflow-hidden rounded-tr-[2rem] bg-neutral-300 align-middle shadow-2xl shadow-black/70 transition-all">
+              <Dialog.Panel className="w-full max-w-4xl transform overflow-hidden rounded-tr-[2rem] bg-white/75 align-middle shadow-2xl shadow-black/70 transition-all">
                 <div className="px-6 pb-12">
                   <Dialog.Title
                     as="h3"

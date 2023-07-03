@@ -33,7 +33,7 @@ const CHARACTERS: Character[] = [
       kr: "Mar. 7th",
     },
     statusMessages: {
-      kr: "셔터를 누른 순간부터 매일의 기억이 시작돼, 오늘은 「너」로 정했어~",
+      kr: "오늘도 Mar. 7th~",
     },
     icon: "/avatars/Character_March_7th_Icon.webp",
     type: "Ice",
@@ -59,7 +59,7 @@ const CHARACTERS: Character[] = [
       kr: "히메코",
     },
     statusMessages: {
-      kr: "",
+      kr: "물은 안 마셔도 되는데, 커피 없으면 안 돼",
     },
     icon: "/avatars/Character_Himeko_Icon.webp",
     type: "Fire",
